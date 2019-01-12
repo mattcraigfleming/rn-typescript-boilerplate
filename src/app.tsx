@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { Platform, StyleSheet, Text, View } from 'react-native'
+import styled from 'styled-components'
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' +
@@ -14,20 +15,39 @@ export interface State { }
 export class App extends React.Component<Props, State> {
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
+      <Wrapper>
+        <Welcome>
           Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
+        </Welcome>
+        <Instructions>
           To get started, edit App.js
-        </Text>
-        <Text style={styles.instructions}>
+        </Instructions>
+        <Instructions>
           {instructions}
-        </Text>
-      </View>
+        </Instructions>
+      </Wrapper>
     );
   }
 }
+
+const Wrapper = styled.View`
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  background-color: #F4764F;
+`
+
+const Welcome = styled.Text`
+  font-size: 20;
+  text-align: center;
+  margin: 10px;
+`
+
+const Instructions = styled.Text`
+  text-align: center;
+  color: #333333;
+  margin-bottom: 5;
+`
 
 const styles = StyleSheet.create({
   container: {
